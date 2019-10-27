@@ -1,0 +1,23 @@
+# Ignore Mac OS-specific storage info for Finder
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore temporary vim files
+*~
+*.swp
+*.swo
+
+# Node specific
+/node_modules
+/yarn-error.log
+yarn.lock
+
+# Env vars
+.env
