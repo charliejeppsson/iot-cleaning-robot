@@ -3,8 +3,9 @@ require('dotenv').config();
 
 var app = express();
 
-app.post('/tibber-developer-test/enter-path', function(req, res) {
-  console.log('Post endpoint hit!');
+app.get('/tibber-developer-test/enter-path', function(req, res) {
+  console.log('Endpoint hit!');
+  res.send('Hello world!');
 });
 
 var HOST = process.env.HOST || 'localhost';
