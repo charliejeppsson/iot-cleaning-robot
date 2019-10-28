@@ -1,6 +1,7 @@
 {
   "name": "iot-cleaning-robot",
   "version": "1.0.0",
+  "description": "Just a normal robot trying to make a living.",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app",
