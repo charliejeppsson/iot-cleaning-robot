@@ -1,15 +1,14 @@
-var express = require('express');
+const express = require('express');
+const routes = require('./src/routes/v1');
+
 require('dotenv').config();
 
-var app = express();
+const app = express();
+app.use(express.json());
+app.use(routes);
 
-app.get('/tibber-developer-test/enter-path', function(req, res) {
-  console.log('Endpoint hit!');
-  res.send('Hello world!');
-});
-
-var HOST = process.env.HOST || 'localhost';
-var PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, HOST, function() {
   console.log(`Server running at http://${HOST}:${PORT}/`);
