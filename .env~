@@ -1,0 +1,7 @@
+PORT=5000
+HOST=localhost
+DATABASE_NAME=cleaning_robot_db_dev
+DATABASE_USERNAME=username
+DATABASE_PASSWORD=password
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
