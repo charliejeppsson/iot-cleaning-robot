@@ -10,8 +10,7 @@ app/assets/.DS_Store
 !/tmp/.keep
 
 # Ignore temporary vim files
-*.js~
-*.un~
+*~
 *.swp
 *.swo
 
@@ -21,6 +20,7 @@ app/assets/.DS_Store
 
 # Env vars
 .env
+.env~
 
 # Docker
 pgdata

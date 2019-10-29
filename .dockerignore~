@@ -6,7 +6,8 @@ app/.DS_Store
 app/assets/.DS_Store
 
 # Ignore temporary vim files
-*~
+*.js~
+*.un~
 *.swp
 *.swo
 
