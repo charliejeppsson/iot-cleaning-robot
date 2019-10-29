@@ -1,9 +1,10 @@
+const lodash = require('lodash');
 const db = require('../../../db/models');
 
 async function cleanOffice(req, res) {
   const start = process.hrtime();
   const commands = req.body.commands;
-  let cleanedPositions = [[req.body.start.x, req.body.start.y]];
+  let cleanedPositions = [{ x: req.body.start.x, y: req.body.start.y }];
   for (let i = 0; i < commands.length; i++) {
     cleanedPositions = collectCleanedPositions(commands, cleanedPositions, i);
   }
@@ -27,16 +28,16 @@ function collectCleanedPositions(commands, cleanedPositions, i) {
 function incrementPosition(currentCommand, currentPosition, j) {
   switch (currentCommand.direction) {
     case 'east':
-      return [currentPosition[0] + j, currentPosition[1]];
+      return { x: currentPosition.x + 1, y: currentPosition.y };
       break;
     case 'west':
-      return [currentPosition[0] - j, currentPosition[1]];
+      return { x: currentPosition.x - 1, y: currentPosition.y };
       break;
     case 'north':
-      return [currentPosition[0], currentPosition[1] + j];
+      return { x: currentPosition.x, y: currentPosition.y + 1 };
       break;
     case 'south':
-      return [currentPosition[0], currentPosition[1] - j];
+      return { x: currentPosition.x, y: currentPosition.y - 1 };
       break;
     default:
       return currentPosition;
@@ -44,8 +45,8 @@ function incrementPosition(currentCommand, currentPosition, j) {
 }
 
 function countUniqueCleanPositions(cleanedPositions) {
-  const uniqueSet = new Set(cleanedPositions);
-  return uniqueSet.size
+  const uniqueArr = lodash.uniqWith(cleanedPositions, lodash.isEqual);
+  return uniqueArr.length;
 }
 
 function calcDuration(start) {
